@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world!!!!!!!!!</h1>
+    <h2>test route homeController</h2>
+    <h2>HTML Table</h2>
+    <div>
+        <table>
+            <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>action</th>
+            </tr>
+            <% for(let i=0; i<dataUser.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dataUser[i].id %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].firstName %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].lastName %>
+                    </td>
+                    <td>
+                        <form action="/detail-user/<%= dataUser[i].id %>" method="get">
+                            <button type="submit">details</button>
+                        </form>
+        
+                        <form action="/delete-user" method="post">
+                            <input type="text" hidden value="<%= dataUser[i].id %>" name="userID" />
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% };%>
+        </table>
+    </div>
+
+    <div class="form-add-user">
+        chỗ này điền form
+    </div>
+</body>
+</html>
